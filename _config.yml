@@ -2,9 +2,9 @@
 title: VentureLi Blog
 SEOTitle: 李文强的博客 | VentureLi Blog
 header-img: img/home-bg.jpg
-email: huxpro@gmail.com
-description: "关于程序员 |  Web  , Software Engineer  | 这里是 @VentureLi 李文强的个人博客，与你一起发现更大的世界。"
-keyword: "VentureLi, 李文强, 博客, 个人网站, 互联网, Web, iOS, 前端, 下决心"
+email: venturli0405@gmail.com
+description: "关于客户端开发与设计、黑客与画家 | 李文强，iOS &  Software Engineer| 这里是 @VentureLi 李文强 的个人博客，与你一起发现更大的世界。"
+keyword: "李文强,VentureLi,iOS，前端，客户端开发，小胖蜂蜜"
 url: "https://huangxuan.me"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
 
@@ -13,8 +13,8 @@ baseurl: ""                             # for example, '/blog' if your blog host
 # SNS settings
 RSS: false
 # weibo_username:     huxpro
-zhihu_username:     ventureli
-github_username:    ventureli
+# zhihu_username:     huxpro
+# github_username:    huxpro
 # twitter_username:   huxpro
 #facebook_username:  huxpro
 # linkedin_username:  firstname-lastname-idxxxx
@@ -60,14 +60,14 @@ netease_comment: false
 # ba_track_id: [your track id]
 
 # Google Analytics
-#ga_track_id: 'UA-49627206-1'            # Format: UA-xxxxxx-xx
-#ga_domain: huangxuan.me
+# ga_track_id: 'UA-49627206-1'            # Format: UA-xxxxxx-xx
+# ga_domain: huangxuan.me
 
 
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "写写代码，品味生活，<br>离开世界之前，一切都是过程"
+sidebar-about-description: "写写代码，卖卖蜂蜜，<br>离开世界之前，一切都是过程"
 sidebar-avatar: /img/avatar-hux.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
@@ -81,15 +81,42 @@ featured-condition-size: 1              # A tag will be featured if the size of 
 # Progressive Web Apps
 chrome-tab-theme-color: "#000000"
 service-worker: true
-
-
+ 
 
 # Friends
 friends: [
     {
-    #     title: "Su",
-    #     href: "http://su.gallery/"
-    # },{
+    # #     title: "Su",
+    # #     href: "http://su.gallery/"
+    # # },{
     #     title: "乱序",
     #     href: "http://mida.re/"
+    # },{
+    #     title: "前端外刊评论",
+    #     href: "http://qianduan.guru/"
+    # },{
+    #     title: "天镶的博客",
+    #     href: "http://lingyu.wang/"
+    # },{
+    #     title: "Luke 的自留地",
+    #     href: "http://hmqk1995.github.io"
+    # },{
+    #     title: "Ebn's Blog",
+    #     href: "http://ebnbin.com/"
+    # },{
+    #     title: "SmdCn's Blog",
+    #     href: "http://blog.smdcn.net"
+    # },{
+    #     title: "David's Game",
+    #     href: "https://www.ruoyaowu.com/"
+    # },{
+    #     title: "DHong Say",
+    #     href: "http://dhong.co"
+    # },{
+    #     title: "尹峰以为",
+    #     href: "http://ingf.github.io/"
+    # },{
+    #     title: "解旻的博客",
+    #     href: "http://xieminis.me/"
+    }
 ]
