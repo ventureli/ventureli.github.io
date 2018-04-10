@@ -5,7 +5,7 @@ header-img: img/home-bg.jpg
 email: venturli0405@gmail.com
 description: "关于客户端开发与设计、黑客与画家 | 李文强，iOS &  Software Engineer| 这里是 @VentureLi 李文强 的个人博客，与你一起发现更大的世界。"
 keyword: "李文强,VentureLi,iOS，前端，客户端开发，小胖蜂蜜"
-url: "https://huangxuan.me"              # your host, for absolute URL
+# url: "https://huangxuan.me"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
 
 
