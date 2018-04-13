@@ -1,10 +1,10 @@
 ---
 layout:     post
-title:      "iOS滚动组件帧率优化标准化流程handbook(1)"
-subtitle:   "性能优化标准"
+title:      "iOS滚动组件帧率优化标准化流程Handbook(1)"
+subtitle:   "性能优化标准化"
 date:       2018-04-12 12:00:00
 author:     "VentureLi"
-header-img: "img/post-bg-2015.jpg"
+header-img: "img/post-bg-ios9-web.jpg"
 catalog: true
 tags:
     - iOS
@@ -12,7 +12,7 @@ tags:
 ---
  
 
-# iOS滚动组件帧率优化标准化流程handbook(1)
+# iOS滚动组件帧率优化标准化流程Handbook(1)
 
 >ventureli在腾讯MIG QQ浏览器浏览器过程总经常遇到需要写feed流一样的界面，这种东西是写出来很简单，但是要是能够很好的帧率和性能那就是另外一回事了。慢慢的总结出来一套优化的标准化流程，如下：可以用于自查
 >
