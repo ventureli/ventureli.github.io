@@ -2,7 +2,7 @@
 layout:     post
 title:      "iOS滚动组件帧率优化标准化流程Handbook(1)"
 subtitle:   "性能优化标准化"
-date:       2018-04-12 12:00:00
+date:       2017-05-11 12:00:00
 author:     "VentureLi"
 header-img: "img/post-bg-ios9-web.jpg"
 header-mask:  0.3
