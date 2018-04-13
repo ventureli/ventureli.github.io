@@ -5,9 +5,130 @@
     <description>关于客户端开发与设计、黑客与画家 | 李文强，iOS &amp;  Software Engineer| 这里是 @VentureLi 李文强 的个人博客，与你一起发现更大的世界。</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 10 Apr 2018 20:07:21 +0800</pubDate>
-    <lastBuildDate>Tue, 10 Apr 2018 20:07:21 +0800</lastBuildDate>
+    <pubDate>Fri, 13 Apr 2018 20:51:19 +0800</pubDate>
+    <lastBuildDate>Fri, 13 Apr 2018 20:51:19 +0800</lastBuildDate>
     <generator>Jekyll v3.7.3</generator>
+    
+      <item>
+        <title>iOS滚动组件帧率优化标准化流程Handbook(1)</title>
+        <description>&lt;h1 id=&quot;ios滚动组件帧率优化标准化流程handbook1&quot;&gt;iOS滚动组件帧率优化标准化流程Handbook(1)&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;ventureli在腾讯MIG QQ浏览器浏览器过程总经常遇到需要写feed流一样的界面，这种东西是写出来很简单，但是要是能够很好的帧率和性能那就是另外一回事了。慢慢的总结出来一套优化的标准化流程，如下：可以用于自查&lt;/p&gt;
+
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;第一步架构级别优化&quot;&gt;第一步架构级别优化：&lt;/h2&gt;
+
+&lt;p&gt;###选择 scrollView还是可复用的CollectionView／UITableView&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;A.对于长度比短，固定的&lt;/strong&gt;，在内存允许的情况下，尽量选用UIScrollView，因为不会出现复用的负担，基本上所有的时间消耗都是一次性的，这样最好。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;B.对于已经使用的TableView和CollectionView的的组件&lt;/strong&gt;，长度固定而且比较短在内存允许的情况下的优化，请看，第二步骤 A.的cell 复用优化。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;第二步组件级别优化&quot;&gt;第二步组件级别优化：&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;A.Cell 复用优化&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;对于cell比较少，而且长度固定这种，比如，cell 一共有三个，而屏幕同时最多显示三个，那么如果这个三个cell是注册为一个子类的话，就会在上下滚动的时候频繁引起刷新和复用，这个时候，内存中其实多一个cell影响并不大，但是能较大提升顺滑度，可以把三个cell注册成不同的reuseidentify，这样可以保证三个cell同时在内存中，并且要结合 第三步骤中的，给cell赋相同record的时候的优化。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[coll registerClass:[MttPaiHangScrollCell class] forCellWithReuseIdentifier:@&quot;FreeTypeViewPaiHangScrollCell&quot;];
+[coll registerClass:[MttPaiHangScrollCell class] forCellWithReuseIdentifier:@&quot;FreeTypeViewPaiHangScrollCellA&quot;];
+[coll registerClass:[MttPaiHangScrollCell class] forCellWithReuseIdentifier:@&quot;FreeTypeViewPaiHangScrollCellB&quot;];
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;B.reloadData 优化&lt;/strong&gt;
+      对于collectionView和tableView 尽量减少排版：也就是说当给collection赋值为同一个 data的时候不触发reload（除非横竖屏切换着用需要重拍的，当然这种情况下，没有滚动，也无需优化帧率），虽然看起来这个很多余，但是这种情况非常多，比如loadmore中，返回空数组也会触发一次reload，造成卡顿。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;例子如下：
+- (void)setListData:(NSArray *)listData
+{
+    if (_listData == listData) {
+        return;
+    }
+    _listData = listData;
+    [self.contentScrollView reloadData];
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;第三步cell级别优化&quot;&gt;第三步Cell级别优化：&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;重复数据优化&lt;/strong&gt;
+  对于collection的Cell ，（collectionView会优先复用indexPath匹配的cell，这个时候，会传回一样的record必须停止触发更新cell）。这个情况比较多，尤其是当前面组件级别优化比较好的时候。&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;-(void)setBookRecord:(bookinfo *)bookRecord
+{
+    if (_bookRecord &amp;amp;&amp;amp; bookRecord &amp;amp;&amp;amp; [bookRecord.resouceID isEqualToString:_bookRecord.resouceID]) {
+        return;
+    }
+    _bookRecord = bookRecord;
+    [self updateUI];
+    [self setBookImage];
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;对于image 加载优化&lt;/strong&gt;
+     &lt;strong&gt;第一级别：&lt;/strong&gt;
+     a.绝对清理DataFromFile 这种在主线程的代码。
+     b.如果是联网的直接用sdwebimage 即可，是在需要从本地缓存读取，先异步读取，然后在生成UIImage后，再主线程更新，
+     c.可以利用NSCache+缓存，通常优化这些对于Image就够了。&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;第二级别：&lt;/strong&gt;
+  UIImage是有图形解码和放缩映射的（图片比较小，拉伸到比较大的情况，或者图片大小和ImageView大小不一样），这个时候可以直接通过UIGraphicsBeginImageContextWithOptions 重新构造一个新的Image，和原来的大小一样，当然这个过程是异步的，也必须和NSCache结合使用，否则会线程过多，这个方法的好处是，它同时能够处理圆角和阴影这种，直接就一次生成好了。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;C.对于圆角，阴影的优化（这绝对是最重要的）&lt;/strong&gt;
+      &lt;strong&gt;a.对于纯色底背景的的&lt;/strong&gt;
+      一个原则，一定要用图形盖住的一定要用图形遮盖，比如有洞的图片（包括日夜间），有洞且有阴影的背景等，这个会对性能提供最大的提升，离屏幕渲染实在是太损耗帧率。
+      &lt;em&gt;*具体可参考小说的主页推荐的优化*。&lt;/em&gt;
+      &lt;strong&gt;b.对于不纯色背景&lt;/strong&gt;
+      &lt;strong&gt;(1).&lt;/strong&gt;这种要看实际情况，通常可以用图片盖，如果不行可参考，image加载优化的第二个级别，自己重新在多线程中进行直接先绘制号。&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; **(2).**如果是在不能用纯色盖或者后台异步绘制，还有两个属性，一个是对layer进行光栅化（这种要对变化不大的才行，否则会更影响帧率），阴影已定要用shaowpath进行写，而不是 radius 这种设置。
+  (针对这种情况我写了很多公用类，可以直接使用，比如圆形遮盖，10像素圆角的遮盖，在browser下的commonmodule下。)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;D.文本优化&lt;/strong&gt;
+&lt;strong&gt;a.&lt;/strong&gt;对于多行文字， 通常我们需要用到 让label顶部对齐，这时候通常用boundingRectWithSize 计算然后重新设置label的frame，这种消耗也比较大，因为label在排版本身也会计算一次，可直接利用这个结果，具体请看我重写的MttTopLeftLabel子类，用这个类可以直接是顶部对其排版。&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;b.&lt;/strong&gt;另外对于多行文字，我发现小说的排行和免费这种，在设置简介的时候非常耗时，造成卡顿严重，这时因为底层用coretext排版的时候有排版和绘制两个过程，此时如果没有其他的可以优化的点的话，这里也可以优化，重写一个UIView ，然后异步计算排版结果并保存（结合NSCache），然后在DrawRect中一次绘制，保证计算的过程中不占主线程
+      &lt;em&gt;*具体可以看工程中的MttAsyncTopLeftLabel 类中的实现方式*。&lt;/em&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;E.基本优化（小动作大效果）&lt;/strong&gt;
+  &lt;strong&gt;a.&lt;/strong&gt;尽量减少混合，也比较简单，把不透明的label，image，什么的都opaque都设成YES
+  &lt;strong&gt;b.&lt;/strong&gt;背景颜色都和父背景颜色一样（注意夜间），虽然步骤比较下，但是优化的效果也是比较明显的。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;其他优化&quot;&gt;其他优化&lt;/h2&gt;
+
+&lt;p&gt;A.尽量少用约束，当cell比较复杂的时候，耗时成指数增加。&lt;/p&gt;
+
+</description>
+        <pubDate>Thu, 12 Apr 2018 20:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2018/04/12/handbook/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/04/12/handbook/</guid>
+        
+        <category>iOS</category>
+        
+        <category>性能优化</category>
+        
+        
+      </item>
     
       <item>
         <title>Hello 2018</title>

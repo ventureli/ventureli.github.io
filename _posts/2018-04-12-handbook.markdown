@@ -5,7 +5,8 @@ subtitle:   "性能优化标准化"
 date:       2018-04-12 12:00:00
 author:     "VentureLi"
 header-img: "img/post-bg-ios9-web.jpg"
-catalog: true
+header-mask:  0.3
+catalog:      true
 tags:
     - iOS
     - 性能优化
@@ -17,7 +18,8 @@ tags:
 >ventureli在腾讯MIG QQ浏览器浏览器过程总经常遇到需要写feed流一样的界面，这种东西是写出来很简单，但是要是能够很好的帧率和性能那就是另外一回事了。慢慢的总结出来一套优化的标准化流程，如下：可以用于自查
 >
 
-##第一步架构级别优化：
+
+##  第一步架构级别优化：
 
 ###选择 scrollView还是可复用的CollectionView／UITableView
  	
@@ -26,7 +28,7 @@ tags:
 * **B.对于已经使用的TableView和CollectionView的的组件**，长度固定而且比较短在内存允许的情况下的优化，请看，第二步骤 A.的cell 复用优化。
 
 
-##第二步组件级别优化：
+## 第二步组件级别优化：
 * **A.Cell 复用优化**
 
     对于cell比较少，而且长度固定这种，比如，cell 一共有三个，而屏幕同时最多显示三个，那么如果这个三个cell是注册为一个子类的话，就会在上下滚动的时候频繁引起刷新和复用，这个时候，内存中其实多一个cell影响并不大，但是能较大提升顺滑度，可以把三个cell注册成不同的reuseidentify，这样可以保证三个cell同时在内存中，并且要结合 第三步骤中的，给cell赋相同record的时候的优化。
@@ -53,7 +55,7 @@ tags:
 ```
 
 
-##第三步Cell级别优化：
+## 第三步Cell级别优化：
 * **重复数据优化**
 	对于collection的Cell ，（collectionView会优先复用indexPath匹配的cell，这个时候，会传回一样的record必须停止触发更新cell）。这个情况比较多，尤其是当前面组件级别优化比较好的时候。
 	
@@ -95,8 +97,9 @@ tags:
 	**a.**尽量减少混合，也比较简单，把不透明的label，image，什么的都opaque都设成YES
 	**b.**背景颜色都和父背景颜色一样（注意夜间），虽然步骤比较下，但是优化的效果也是比较明显的。
 		
-##其他优化
+## 其他优化
 
-A.尽量少用约束，当cell比较复杂的时候，耗时成指数增加。
+A.尽量少用约束，当cell比较复杂的时候，耗时成指数增加。 
+
 
 

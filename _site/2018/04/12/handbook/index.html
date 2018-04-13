@@ -10,7 +10,7 @@
     <meta name="keywords"  content="李文强,VentureLi,iOS，前端，客户端开发，小胖蜂蜜">
     <meta name="theme-color" content="#000000">
     
-    <title>Hello 2018 - 李文强的博客 | VentureLi Blog</title>
+    <title>iOS滚动组件帧率优化标准化流程Handbook(1) - 李文强的博客 | VentureLi Blog</title>
 
     <!-- Web App Manifest -->
     <link rel="manifest" href="/pwa/manifest.json">
@@ -19,7 +19,7 @@
     <link rel="shortcut icon" href="/img/favicon.ico">
     
     <!-- Canonical URL -->
-    <link rel="canonical" href="http://localhost:4000/2018/04/09/hello-2019/">
+    <link rel="canonical" href="http://localhost:4000/2018/04/12/handbook/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -154,15 +154,22 @@
 
 
     <!-- Image to hack wechat -->
-<!-- <img src="/img/post-bg-2015.jpg" width="0" height="0"> -->
+<!-- <img src="/img/post-bg-ios9-web.jpg" width="0" height="0"> -->
 
 <!-- Post Header -->
 <style type="text/css">
     header.intro-header{
         position: relative;
-        background-image: url('/img/post-bg-2015.jpg')
+        background-image: url('/img/post-bg-ios9-web.jpg')
     }
 
+    
+    header.intro-header .header-mask{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background: rgba(0,0,0, 0.3);
+    }
     
 </style>
 <header class="intro-header" >
@@ -173,17 +180,17 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#开始" title="开始">开始</a>
+                        <a class="tag" href="/tags/#iOS" title="iOS">iOS</a>
                         
-                        <a class="tag" href="/tags/#生活" title="生活">生活</a>
+                        <a class="tag" href="/tags/#性能优化" title="性能优化">性能优化</a>
                         
                     </div>
-                    <h1>Hello 2018</h1>
+                    <h1>iOS滚动组件帧率优化标准化流程Handbook(1)</h1>
                     
                     
-                    <h2 class="subheading"> "Hello World, Hello Blog"</h2>
+                    <h2 class="subheading">性能优化标准化</h2>
                     
-                    <span class="meta">Posted by VentureLi on April 9, 2018</span>
+                    <span class="meta">Posted by VentureLi on April 12, 2018</span>
                 </div>
             </div>
         </div>
@@ -204,15 +211,112 @@
                 <!-- Multi-Lingual -->
                 
 
-				<blockquote>
-  <p>“Yeah It’s on. ”</p>
+				<h1 id="ios滚动组件帧率优化标准化流程handbook1">iOS滚动组件帧率优化标准化流程Handbook(1)</h1>
+
+<blockquote>
+  <p>ventureli在腾讯MIG QQ浏览器浏览器过程总经常遇到需要写feed流一样的界面，这种东西是写出来很简单，但是要是能够很好的帧率和性能那就是另外一回事了。慢慢的总结出来一套优化的标准化流程，如下：可以用于自查</p>
+
 </blockquote>
 
-<h2 id="前言">前言</h2>
+<h2 id="第一步架构级别优化">第一步架构级别优化：</h2>
 
-<p>VentureLi 的 Blog 就这么开通了。</p>
+<p>###选择 scrollView还是可复用的CollectionView／UITableView</p>
 
-<p>从今天起，这里写写代码，看看书，加油！！</p>
+<ul>
+  <li>
+    <p><strong>A.对于长度比短，固定的</strong>，在内存允许的情况下，尽量选用UIScrollView，因为不会出现复用的负担，基本上所有的时间消耗都是一次性的，这样最好。</p>
+  </li>
+  <li>
+    <p><strong>B.对于已经使用的TableView和CollectionView的的组件</strong>，长度固定而且比较短在内存允许的情况下的优化，请看，第二步骤 A.的cell 复用优化。</p>
+  </li>
+</ul>
+
+<h2 id="第二步组件级别优化">第二步组件级别优化：</h2>
+<ul>
+  <li>
+    <p><strong>A.Cell 复用优化</strong></p>
+
+    <p>对于cell比较少，而且长度固定这种，比如，cell 一共有三个，而屏幕同时最多显示三个，那么如果这个三个cell是注册为一个子类的话，就会在上下滚动的时候频繁引起刷新和复用，这个时候，内存中其实多一个cell影响并不大，但是能较大提升顺滑度，可以把三个cell注册成不同的reuseidentify，这样可以保证三个cell同时在内存中，并且要结合 第三步骤中的，给cell赋相同record的时候的优化。</p>
+  </li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[coll registerClass:[MttPaiHangScrollCell class] forCellWithReuseIdentifier:@"FreeTypeViewPaiHangScrollCell"];
+[coll registerClass:[MttPaiHangScrollCell class] forCellWithReuseIdentifier:@"FreeTypeViewPaiHangScrollCellA"];
+[coll registerClass:[MttPaiHangScrollCell class] forCellWithReuseIdentifier:@"FreeTypeViewPaiHangScrollCellB"];
+</code></pre></div></div>
+
+<ul>
+  <li><strong>B.reloadData 优化</strong>
+      对于collectionView和tableView 尽量减少排版：也就是说当给collection赋值为同一个 data的时候不触发reload（除非横竖屏切换着用需要重拍的，当然这种情况下，没有滚动，也无需优化帧率），虽然看起来这个很多余，但是这种情况非常多，比如loadmore中，返回空数组也会触发一次reload，造成卡顿。</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>例子如下：
+- (void)setListData:(NSArray *)listData
+{
+    if (_listData == listData) {
+        return;
+    }
+    _listData = listData;
+    [self.contentScrollView reloadData];
+}
+</code></pre></div></div>
+
+<h2 id="第三步cell级别优化">第三步Cell级别优化：</h2>
+<ul>
+  <li>
+    <p><strong>重复数据优化</strong>
+  对于collection的Cell ，（collectionView会优先复用indexPath匹配的cell，这个时候，会传回一样的record必须停止触发更新cell）。这个情况比较多，尤其是当前面组件级别优化比较好的时候。</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-(void)setBookRecord:(bookinfo *)bookRecord
+{
+    if (_bookRecord &amp;&amp; bookRecord &amp;&amp; [bookRecord.resouceID isEqualToString:_bookRecord.resouceID]) {
+        return;
+    }
+    _bookRecord = bookRecord;
+    [self updateUI];
+    [self setBookImage];
+}
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><strong>对于image 加载优化</strong>
+     <strong>第一级别：</strong>
+     a.绝对清理DataFromFile 这种在主线程的代码。
+     b.如果是联网的直接用sdwebimage 即可，是在需要从本地缓存读取，先异步读取，然后在生成UIImage后，再主线程更新，
+     c.可以利用NSCache+缓存，通常优化这些对于Image就够了。</p>
+
+    <p><strong>第二级别：</strong>
+  UIImage是有图形解码和放缩映射的（图片比较小，拉伸到比较大的情况，或者图片大小和ImageView大小不一样），这个时候可以直接通过UIGraphicsBeginImageContextWithOptions 重新构造一个新的Image，和原来的大小一样，当然这个过程是异步的，也必须和NSCache结合使用，否则会线程过多，这个方法的好处是，它同时能够处理圆角和阴影这种，直接就一次生成好了。</p>
+  </li>
+  <li>
+    <p><strong>C.对于圆角，阴影的优化（这绝对是最重要的）</strong>
+      <strong>a.对于纯色底背景的的</strong>
+      一个原则，一定要用图形盖住的一定要用图形遮盖，比如有洞的图片（包括日夜间），有洞且有阴影的背景等，这个会对性能提供最大的提升，离屏幕渲染实在是太损耗帧率。
+      <em>*具体可参考小说的主页推荐的优化*。</em>
+      <strong>b.对于不纯色背景</strong>
+      <strong>(1).</strong>这种要看实际情况，通常可以用图片盖，如果不行可参考，image加载优化的第二个级别，自己重新在多线程中进行直接先绘制号。</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> **(2).**如果是在不能用纯色盖或者后台异步绘制，还有两个属性，一个是对layer进行光栅化（这种要对变化不大的才行，否则会更影响帧率），阴影已定要用shaowpath进行写，而不是 radius 这种设置。
+  (针对这种情况我写了很多公用类，可以直接使用，比如圆形遮盖，10像素圆角的遮盖，在browser下的commonmodule下。)
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><strong>D.文本优化</strong>
+<strong>a.</strong>对于多行文字， 通常我们需要用到 让label顶部对齐，这时候通常用boundingRectWithSize 计算然后重新设置label的frame，这种消耗也比较大，因为label在排版本身也会计算一次，可直接利用这个结果，具体请看我重写的MttTopLeftLabel子类，用这个类可以直接是顶部对其排版。</p>
+
+    <p><strong>b.</strong>另外对于多行文字，我发现小说的排行和免费这种，在设置简介的时候非常耗时，造成卡顿严重，这时因为底层用coretext排版的时候有排版和绘制两个过程，此时如果没有其他的可以优化的点的话，这里也可以优化，重写一个UIView ，然后异步计算排版结果并保存（结合NSCache），然后在DrawRect中一次绘制，保证计算的过程中不占主线程
+      <em>*具体可以看工程中的MttAsyncTopLeftLabel 类中的实现方式*。</em></p>
+  </li>
+  <li>
+    <p><strong>E.基本优化（小动作大效果）</strong>
+  <strong>a.</strong>尽量减少混合，也比较简单，把不透明的label，image，什么的都opaque都设成YES
+  <strong>b.</strong>背景颜色都和父背景颜色一样（注意夜间），虽然步骤比较下，但是优化的效果也是比较明显的。</p>
+  </li>
+</ul>
+
+<h2 id="其他优化">其他优化</h2>
+
+<p>A.尽量少用约束，当cell比较复杂的时候，耗时成指数增加。</p>
 
 
                 <hr/>
@@ -221,13 +325,13 @@
 
                 <ul class="pager">
                     
-                    
-                    <li class="next">
-                        <a href="/2018/04/12/handbook/" data-toggle="tooltip" data-placement="top" title="iOS滚动组件帧率优化标准化流程Handbook(1)">
-                        Next<br>
-                        <span>iOS滚动组件帧率优化标准化流程Handbook(1)</span>
+                    <li class="previous">
+                        <a href="/2018/04/09/hello-2019/" data-toggle="tooltip" data-placement="top" title="Hello 2018">
+                        Previous<br>
+                        <span>Hello 2018</span>
                         </a>
                     </li>
+                    
                     
                 </ul>
 
@@ -309,8 +413,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "ventureli"; //"ventureli";
-    var disqus_identifier = "/2018/04/09/hello-2019";
-    var disqus_url = "http://localhost:4000/2018/04/09/hello-2019/";
+    var disqus_identifier = "/2018/04/12/handbook";
+    var disqus_url = "http://localhost:4000/2018/04/12/handbook/";
     (function() {
         // var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
         // dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
