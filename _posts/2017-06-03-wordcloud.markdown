@@ -14,7 +14,7 @@ tags:
 ---
 
 # 图片转文字云算法
->venture（作者自称：腾讯rtx：fatboyli）在自己的小APP，在写自己的小APP酷酷头像的时候，需要写一个图片转文字云的算法，这里进行一个详细的介绍。
+>venture（作者自称：腾讯rtx：fatboyli）在自己的小APP酷酷头像，在写的时候，需要写一个图片转文字云的算法，这里进行一个详细的介绍。
 效果主要如下：
 <div  align="center" >    
 <img src="/img/postimg/wordcloud/0.png" width="500px" />
