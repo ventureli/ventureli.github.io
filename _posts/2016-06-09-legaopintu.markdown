@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "<酷酷头像>图片转文字云的算法"
+title:      "<酷酷头像>乐高拼图算法"
 subtitle:   " \"酷酷头像算法\""
 date:       2017-06-09 12:00:00
 author:     "VentureLi"
@@ -19,12 +19,12 @@ tags:
 
 **原图**
 <div  align="center" >    
-<img src="../img/postimg/legao/3.png" />
+<img src="/img/postimg/legao/3.png" />
 </div>
 **效果图**
 
 <div  align="center" >    
-<img src="../img/postimg/legao/4.png" />
+<img src="/img/postimg/legao/4.png" />
 </div>
 
 >这个算法不难，但是效果非常好，看起来酷酷的，下面详细介绍下乐高拼图的算法（iOS实现），其他客户端比如js，android请自行翻译
@@ -233,7 +233,7 @@ tags:
 >
 
 <div  align="center" >    
-<img src="../img/postimg/legao/5.jpg" />
+<img src="/img/postimg/legao/5.jpg" />
 </div>
 
 >然后我们把这张图片屏幕在刚才生成的马赛克图上，混合模式选择：线性光,这个是venture自己实现的混合模式中的一个算法,其实这个算法非常简单
@@ -297,16 +297,16 @@ void kKPTBlendModeLinearGlowFunction(KPTRGBPixel *target , const KPTRGBPixel *fr
 ```
 **注意**把cell和image进行混合后，出现一个问题，就是纯白色和纯黑色附近的色值和legaocell混合后没有出现legaocell的轮廓，依然是白色和黑色,比如下图这种情况
 <div  align="center" >    
-<img src="../img/postimg/legao/6.png" />
+<img src="/img/postimg/legao/6.png" />
 </div>
 
 所以我们对马赛克生成的颜色区域进行了限定，结果如下：
 <div  align="center" >    
-<img src="../img/postimg/legao/0.png" />
+<img src="/img/postimg/legao/0.png" />
 
 </div>
 **这个就比较完美了**
 最后放两张女神图，能看出来是谁吗？哈哈
 <div  align="center" >    
-<img src="../img/postimg/legao/7.png" />
+<img src="/img/postimg/legao/7.png" />
 </div>
