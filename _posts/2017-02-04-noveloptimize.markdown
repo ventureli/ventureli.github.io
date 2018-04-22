@@ -21,13 +21,13 @@ tags:
 >小说阅读是iPAD的一直主要的内容使用场景，之前第一版我们只上线了，分页阅读，就是一页一页的渲染，然后不同页面之前的切换有层叠，渐变，滑动三种形式，比较简单，因为是分页阅读没有卡顿的问题，内存占比也比较少，因为我们只要有三页的内容在内存里，然后在切换的过程中有动画，完全可以能够对其他面进行预处理和加载。整个页面的样子大约如下
 
 <div  align="center" >    
-<img src="../img/postimg/noveloptimize/1.png"/>
+<img src="/img/postimg/noveloptimize/1.png"/>
 </div>
 
 >但是后来产品需要要求连续的滚动滑动，这个就是比较麻烦的一件事了。因为我们要综合考虑内存和卡顿的情况，比如快速滚动的过程中有卡顿，肯定是不行的，但是没有卡顿就要预先处理，那么内存又上去了，这要取一个平衡才行。
 
 <div  align="center" >    
-<img src="../img/postimg/noveloptimize/2.png"/>
+<img src="/img/postimg/noveloptimize/2.png"/>
 </div>
 
 **这个问题我前后做了三个版本，最终才找到最优的解决方案**
@@ -36,7 +36,7 @@ tags:
 ## 优化方案1
 当然，首先想到的还是用分页的方式，那么三个页面滚动的时候，我可以在didscroll的时候进行轮换，那么这样渲染起来比较简单，也不是很占内存。具体的示意图如下。
 <div  align="center" >    
-<img src="../img/postimg/noveloptimize/3.png"  />
+<img src="/img/postimg/noveloptimize/3.png"  />
 </div>
 **这种方案的占用内存很少，但是在快速滚动过程中实在是跳动太明显，放弃了**
 另外这种方案还有一个问题，如果有些章节文字太短，需要好多章节在一起才能构成一页的话，计算起来也很麻烦。
@@ -44,7 +44,7 @@ tags:
 ## 优化方案2
 这个次我吸取了方案1的教训，因为用三页来做缓存的问题是你只要上下滚动一点点都会触发切换页面，那么我把三个页面设计长一点，让每个页面都能独立的超过屏幕高度很多，那么我可以有充足的时间进行预渲染和计算。所以方案二如下：我把三页提升为三章节（每一章节比较长，注意这里不是自然分段的章节意思，一个里面可能有很多章节或者只有一个），这样每一个缓存的模块里至少有一章节。
 <div  align="center" >    
-<img src="../img/postimg/noveloptimize/4.png"  />
+<img src="/img/postimg/noveloptimize/4.png"  />
 </div>
 **这种方案的实现不难，也不卡顿了，但是新的问题出现了，如果一个章节的内存太长的话，会直接导致内存飙升。这个问题就打了，我们很多时候宁愿卡顿也不要内存crash的，所以经过尝试后放弃**
 
@@ -62,11 +62,11 @@ tags:
 **表面上看起来这几个要求有点冲突，尤其是第二条和第三条**，但是学习coretext后我们知道coretext的排版粒度是很细的，这里借用本作者其他博客的图片一张。
 
 <div  align="center" >    
-<img src="../img/postimg/noveloptimize/6.png"  />
+<img src="/img/postimg/noveloptimize/6.png"  />
 </div>
 大致分为这些层级，我之前按照页来排版，大致只使用到了CTFrame和CGpath也就是整块排版。但是我们排版的粗粒度可以更细小，那么很正常我们可以用CTline，也就说整行渲染。所以最终方案3的设计如下：
 <div  align="center" >    
-<img src="../img/postimg/noveloptimize/7.png"/>
+<img src="/img/postimg/noveloptimize/7.png"/>
 </div>
 我们采用CTLine来作为渲染的单位，不断的提取CtLine，然后存储到TableView的dataSource中，随时计算和追加，同事利用复用，异步，一次排版多次绘制等方式提升帧率达到最终效果
 
@@ -75,7 +75,7 @@ tags:
 * 我们和方案一对比下卡顿
 
  <div  align="center" >    
-<img src="../img/postimg/noveloptimize/8.png"  />
+<img src="/img/postimg/noveloptimize/8.png"  />
 </div>
 
 
@@ -83,6 +83,6 @@ tags:
 
 
  <div  align="center" >    
-<img src="../img/postimg/noveloptimize/9.png"  />
+<img src="/img/postimg/noveloptimize/9.png"  />
 </div>
 
