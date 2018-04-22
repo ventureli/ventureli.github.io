@@ -2,7 +2,7 @@
 layout:     post
 title:      "<酷酷头像>图片转文字云的算法"
 subtitle:   " \"酷酷头像算法\""
-date:       2017-06-05 12:00:00
+date:       2016-06-05 12:00:00
 author:     "VentureLi"
 header-img: "img/home-bg-art.jpg"
 catalog: true
@@ -467,3 +467,4 @@ tags:
 <img src="/img/postimg/wordcloud/5.png" width="100%" />
 <img src="/img/postimg/wordcloud/6.png" width="100%" />
 </div>
+

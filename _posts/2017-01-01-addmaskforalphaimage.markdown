@@ -2,7 +2,7 @@
 layout:     post
 title:      "图形图像处理-给有Alpha通道的图片加夜间遮罩方法"
 subtitle:   " \"混合模式\""
-date:       2017-06-01 12:00:00
+date:       2017-01-01 12:00:00
 author:     "VentureLi"
 header-img: "img/post-bg-ios9-web.jpg"
 catalog: true
