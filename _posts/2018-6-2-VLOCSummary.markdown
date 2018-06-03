@@ -2,7 +2,7 @@
 layout:     post
 title:      "如何从0开始写一个OC语言的编译器和虚拟机(1)"
 subtitle:   "前奏"
-date:       2017-61-11 12:00:00
+date:       2017-6-1 12:00:00
 author:     "VentureLi"
 header-img: "img/post-bg-ios9-web.jpg"
 header-mask:  0.3
