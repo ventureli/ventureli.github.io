@@ -177,7 +177,7 @@ return contentView;
 ```
 你一定以为这是OC代码对吗？是的，这也是VLOCLanguage，上面的源代码当作字符串输入给VLOCInterpreter 就可以 运行出下面的结果。
 <div  align="center" >    
-<img src="../img/postimg/vloc/qianzou/1.png" width="500px" />
+<img src="/img/postimg/vloc/qianzou/1.png" width="500px" />
 </div>
 
 具体的使用方法如下：
