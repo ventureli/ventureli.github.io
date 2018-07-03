@@ -20,7 +20,7 @@
         /*.logo{ -webkit-flex-shrink: 0;-ms-flex-negative: 0;flex-shrink: 0;-webkit-box-flex: 1;-webkit-flex-grow: 1;-ms-flex-positive: 1;flex-grow: 1; display:block;}*/
         .logo{ position: absolute; left:2%; top:5px}
         .download-btn{position: absolute; right:2%; margin-top:5px; /*position: absolute; right:18px; top:12px;*//*-webkit-flex-shrink: 0;-ms-flex-negative: 0;flex-shrink: 0;*/  display: inline-block; padding:8px; border-radius:5px; background:#ffc61d; font-size: 13px; color:#181818; text-decoration:none;}
-        .swiper-slide img{ position:absolute; bottom:0; left:50%;}
+        .swiper-slide img{ position:absolute; bottom:0; margin:0;}
     </style>
 </head>
 <body>
@@ -68,7 +68,7 @@
             var $obj = $('.swiper-slide img'),
                 width = $obj.width();
 
-            $('.swiper-slide img').css('margin-left',-(width/2)+'px');
+           // $('.swiper-slide img').css('margin-left',-(width/2)+'px');
         }
         $(window).resize(function(){
             setImg();
