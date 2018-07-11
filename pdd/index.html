@@ -2,33 +2,51 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>下决心</title>
+    <title>劵多多</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="css/swiper.min.css">
     <style>
         body,img,p,form,div,ul,li,input,h3,td,th {margin: 0;padding: 0;}
         html, body {position: relative;height: 100%;}
-        body {background: #1386e2;font-family: Helvetica Neue, Helvetica, Arial, sans-serif;font-size: 14px;color:#000;margin: 0;padding: 0;}
+        body {
+           
+            background: #fc5558;font-family: Helvetica Neue, Helvetica, Arial, sans-serif;font-size: 14px;color:#000;margin: 0;padding: 0;}
         .swiper-container {width: 100%;height: 100%;}
-        .swiper-slide {text-align: center;font-size: 18px;background: #1386e2; position: relative; text-align:center;
+        .swiper-slide {text-align: center;font-size: 18px;/*background: #1386e2; */position: relative; text-align:center;
             /* Center slide text vertically */display: -webkit-box;display: -ms-flexbox;display: -webkit-flex;display: flex;-webkit-box-pack: center;-ms-flex-pack: center;-webkit-justify-content: center;justify-content: center;-webkit-box-align: center;-ms-flex-align: center;-webkit-align-items: center;align-items: center;}
         .swiper-container-horizontal>.swiper-pagination{bottom:40px;}
         .swiper-pagination-bullet{width:8px;height:8px;}
         .swiper-pagination-bullet-active{background: #fff;}
-        .download-box{ display:flex; flex-flow:row; position:fixed; top: 0; left: 0; width:100%; z-index: 9999999; background: #117acf; width:100%;}
-        .dowmload{padding:10px 0px; width:100%; height:40px; position: relative;}
+        .download-box{ display:flex; flex-flow:row; position:fixed; top: 0; left: 0; width:100%; z-index: 9999999; background: #1818182e; width:100%;}
+        .dowmload{padding:10px 0px; width:100%; height:60px; position: relative;}
         /*.logo{ -webkit-flex-shrink: 0;-ms-flex-negative: 0;flex-shrink: 0;-webkit-box-flex: 1;-webkit-flex-grow: 1;-ms-flex-positive: 1;flex-grow: 1; display:block;}*/
         .logo{ position: absolute; left:2%; top:5px}
-        .download-btn{position: absolute; right:2%; margin-top:5px; /*position: absolute; right:18px; top:12px;*//*-webkit-flex-shrink: 0;-ms-flex-negative: 0;flex-shrink: 0;*/  display: inline-block; padding:8px; border-radius:5px; background:#ffc61d; font-size: 13px; color:#181818; text-decoration:none;}
-        .swiper-slide img{ position:absolute; bottom:0; left:50%;}
+        .btnBar
+        {
+            width: 100%;
+            height: 30px;
+            margin-top: -20px;
+             
+        }
+        .download-btn{ float:right; margin-right: 10px;   margin-top:5px; /*position: absolute; right:18px; top:12px;*//*-webkit-flex-shrink: 0;-ms-flex-negative: 0;flex-shrink: 0;*/  display: inline-block; padding:8px; border-radius:5px; background:#ffc61d; font-size: 13px; color:#181818; text-decoration:none; }
+        .download-btnB{ float:right;   margin-top:5px; /*position: absolute; right:18px; top:12px;*//*-webkit-flex-shrink: 0;-ms-flex-negative: 0;flex-shrink: 0;*/  display: inline-block; padding:8px;margin-right: 10px;  border-radius:5px; background:#ffc61d; font-size: 13px; color:#181818; text-decoration:none;}
+        .swiper-slide img{ position:absolute; bottom:0; left:50%; border-radius: 10px;}
     </style>
 </head>
 <body>
     <div class="download-box">
         <div class="dowmload">
-            <a class="logo" href="javascript:"><img width="180" alt="" src="images/logo.png"></a>
-            <a href="https://itunes.apple.com/cn/app/xia-jue-xin/id1115154013?mt=8" class="download-btn">立即下载</a>
+            <div style="height: 40px;">
+            <a class="logo" href="javascript:"><img width="80%"  alt="" src="images/logo.png"></a>
+            </div>
+            <div class="btnBar">
+            <a href="https://itunes.apple.com/cn/app/xia-jue-xin/id1115154013?mt=8" class="download-btnB">Android下载</a>
+            
+            <a href="https://itunes.apple.com/cn/app/xia-jue-xin/id1115154013?mt=8" class="download-btn">iOS下载</a>
+            </div>
+
         </div>
+
     </div>
     <div class="swiper-container">
         <div class="swiper-wrapper">
