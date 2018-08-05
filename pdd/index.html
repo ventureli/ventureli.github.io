@@ -84,8 +84,9 @@ a{text-decoration: none;
             </div>
             <div class="btnBar">
             <a href="javascript:downloadAndroid()" class="download-btnB"  >Android下载</a>
+            <a href="javascript:toast('APPStore 审核中，请稍后')" class="download-btn">iOS下载</a>
             
-            <a href="https://itunes.apple.com/cn/app/xia-jue-xin/id1115154013?mt=8" class="download-btn">iOS下载</a>
+            <!-- <a href="https://itunes.apple.com/cn/app/xia-jue-xin/id1115154013?mt=8" class="download-btn">iOS下载</a> -->
             </div>
 
         </div>
@@ -150,7 +151,7 @@ a{text-decoration: none;
                 return false;
             }
         }
-        var isWeixin =true;// is_weixin();
+        var isWeixin = is_weixin();
         if(isWeixin){
         $(".weixin-tip").css("height",winHeight);
         $(".weixin-tip").show();
