@@ -140,7 +140,6 @@ a{text-decoration: none;
       var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1;
       var isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
         
-      location.href = 'pyyhh-release.apk';//安卓下载地址
       var winHeight = $(window).height();
         function is_weixin() 
         {
@@ -152,17 +151,21 @@ a{text-decoration: none;
             }
         }
         var isWeixin = is_weixin();
-        if(isWeixin){
-        $(".weixin-tip").css("height",winHeight);
-        $(".weixin-tip").show();
+        if(isWeixin)
+        {
+            $(".weixin-tip").css("height",winHeight);
+            $(".weixin-tip").show();
 
-        $(".weixin-tip").click(function()
-          {
-            $(".weixin-tip").hide();
-          });
+            $(".weixin-tip").click(function()
+              {
+                $(".weixin-tip").hide();
+              });
 
-        }
+        }else{
+            location.href = 'pyyhh-release.apk';//安卓下载地址
+    
           
+        }
       }
 
 
