@@ -20,40 +20,7 @@
         window.NTESAntProjectid = "NTM-MMKAJZQA-4";
         window.NTESProjectid = "fdh5_flag2018";
 
-        function downloadFile(fileName, content) {
-        let aLink = document.createElement('a');
-        let blob = this.base64ToBlob(content); //new Blob([content]);
-
-        let evt = document.createEvent("HTMLEvents");
-        evt.initEvent("click", true, true);//initEvent 不加后两个参数在FF下会报错  事件类型，是否冒泡，是否阻止浏览器的默认行为
-        aLink.download = fileName;
-        aLink.href = URL.createObjectURL(blob);
-
-        // aLink.dispatchEvent(evt);
-        //aLink.click()
-        aLink.dispatchEvent(new MouseEvent('click', {bubbles: true, cancelable: true, view: window}));//兼容火狐
-        }
-
-      function  base64ToBlob(code) {
-        let parts = code.split(';base64,');
-        let contentType = parts[0].split(':')[1];
-        let raw = window.atob(parts[1]);
-        let rawLength = raw.length;
-
-        let uInt8Array = new Uint8Array(rawLength);
-
-        for (let i = 0; i < rawLength; ++i) {
-          uInt8Array[i] = raw.charCodeAt(i);
-        }
-        return new Blob([uInt8Array], {type: contentType});
-      }
-
-      $(".long_tap").click(function(){   var type ='png';//你想要什么图片格式 就选什么吧
-                var d=document.getElementsByClassName("bottom_show")[0].children[0];
-                var imgdata=d.src;
-                
-                downloadFile('2019.png', imgdata);
-      });
+       
     </script>
 </head>
 <body>
@@ -478,42 +445,6 @@
             k.src = '//static.ws.126.net/163/frontend/antnest/'+n+'.js';
             f.parentNode.insertBefore(k, f);
         })(window, document, 'script',window.NTESAntProjectid);
-
-
-        function downloadFile(fileName, content) {
-        let aLink = document.createElement('a');
-        let blob = this.base64ToBlob(content); //new Blob([content]);
-
-        let evt = document.createEvent("HTMLEvents");
-        evt.initEvent("click", true, true);//initEvent 不加后两个参数在FF下会报错  事件类型，是否冒泡，是否阻止浏览器的默认行为
-        aLink.download = fileName;
-        aLink.href = URL.createObjectURL(blob);
-
-        // aLink.dispatchEvent(evt);
-        //aLink.click()
-        aLink.dispatchEvent(new MouseEvent('click', {bubbles: true, cancelable: true, view: window}));//兼容火狐
-        }
-
-      function  base64ToBlob(code) {
-        let parts = code.split(';base64,');
-        let contentType = parts[0].split(':')[1];
-        let raw = window.atob(parts[1]);
-        let rawLength = raw.length;
-
-        let uInt8Array = new Uint8Array(rawLength);
-
-        for (let i = 0; i < rawLength; ++i) {
-          uInt8Array[i] = raw.charCodeAt(i);
-        }
-        return new Blob([uInt8Array], {type: contentType});
-      }
-
-      $(".long_tap").click(function(){   var type ='png';//你想要什么图片格式 就选什么吧
-                var d=document.getElementsByClassName("bottom_show")[0].children[0];
-                var imgdata=d.src;
-                
-                downloadFile('2019.png', imgdata);
-      });
 
     </script>
     <script src="http://analytics.163.com/ntes.js"></script><script>_ntes_nacc = "mapp";neteaseTracker();</script><script src="http://static.ws.126.net/utf8/3g/util/analysis.min.js"></script><script>var _hmt=_hmt||[];(function(){var b=document.createElement("script");b.src="http://hm.baidu.com/hm.js?7fa45cfaddbf8ba5591da1950285d665";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(b,a)})();</script>
