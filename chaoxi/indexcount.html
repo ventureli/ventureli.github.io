@@ -1,36 +1,69 @@
-<html>
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-<title>下决心新年flag</title>
-<SCRIPT type="text/javascript">        
-            var maxtime = 5; //一个小时，按秒计算，自己调整!   
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>你的新年Flag</title>
+    <meta name="project-path" content="news/dada2018_newyear" />
+    <meta name="keywords" content="今日目标客户端">
+    <meta name="description" content="">
+    <meta name="author" content="今日目标">
+    <meta name="copyright" content="今日目标版权所有">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no,email=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="full-screen" content="true">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="360-fullscreen" content="true">
+    <link rel="stylesheet" href="css/index.min.css"/>
+    <script>
+        window.NTESAntProjectid = "NTM-MMKAJZQA-4";
+        window.NTESProjectid = "fdh5_flag2018";
+          var maxtime = 5; //一个小时，按秒计算，自己调整!   
             function CountDown() {
                 if (maxtime >= 0) {
                     minutes = Math.floor(maxtime / 60);
                     seconds = Math.floor(maxtime % 60);
-                    msg = "准备好新年的flag了吗？<br/>"+ seconds + "";
+                    msg = ""+ seconds + "";
                     document.all["timer"].innerHTML = msg;
                     if (maxtime == 5 * 60);
                         --maxtime;
                 } else{
                     clearInterval(timer);
-                   window.location.href = "index.html"
+                   // window.location.href = "index.html"
                 }
             }
             timer = setInterval("CountDown()", 1000);                
         </SCRIPT>
 
-
-<style type="text/css">
- body,img,p,form,div,ul,li,input,h3,td,th {padding: 0; margin: 0;}
-        html, body {position: relative;height: 100%; padding: 0; margin: 0;}
-        body {background: /*#1386e2*/white;font-family: Helvetica Neue, Helvetica, Arial, sans-serif;font-size: 14px;color:#000;margin: 0;padding: 0;}
+       
+    </script>
+    <style type="text/css"> 
+     
+        body {
+            background-image: url("./images/bglogo.png");
+            background-repeat:no-repeat;
+            background-size: contain;
+            background-position: center;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;color:#000;margin: 0;padding: 0;}
     
 .countdowntext{
-    margin-top: 200px;
-    font-size:50px;
+    text-align: center; /*让div内部文字居中*/
+    /*background-color: #fff;*/
+    border-radius: 20px;
+    width: 300px;
+    height: 350px;
+    line-height: 350px;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    font-size:120px;
     text-align: center;
+    color: #333333;
 }
  .download-box{transition: all 500ms linear; visibility: visible; opacity: 1.0; flex-flow:row; position:fixed; top: 0; left: 0; width:100%; z-index: 9999999; background: /*#117acf*/white; width:100%;}
  .dowmload{padding:10px 0px; width:100%; height:80px; position: relative;}
@@ -40,10 +73,8 @@
 
 </style>
 </head>
-
-
 <body>
- <div class="download-box">
+     <div class="download-box">
     <div class="dowmload">
         <a class="logo" href="javascript:">
             <img width="148" alt="" src="images/logo.png"></a>
@@ -52,5 +83,6 @@
     </div>
 </div>
 <div id="timer" class="countdowntext"></div> 
+     
 </body>
 </html>
