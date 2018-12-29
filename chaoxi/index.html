@@ -446,41 +446,7 @@
             f.parentNode.insertBefore(k, f);
         })(window, document, 'script',window.NTESAntProjectid);
 
-
-         $(".long_tap").click(function(){   var type ='png';//你想要什么图片格式 就选什么吧
-                        // var d=document.getElementsByClassName("long_tap")[0].children[0];
-                        // var imgdata=d.src;
-                        download();
-            });
-
-        function download()
-            {
-                    var d=document.getElementsByClassName("bottom_show")[0].children[0];
-                    //var imgdata=d.src;
-                    var type ='jpg';//你想要什么图片格式 就选什么吧
-                    //var d=document.getElementById("cavasimg");
-                    var imgdata=d.src;
-                    //2.0 将mime-type改为image/octet-stream,强制让浏览器下载
-                    var fixtype=function(type){
-                        type=type.toLocaleLowerCase().replace(/jpg/i,'jpeg');
-                        var r=type.match(/png|jpeg|bmp|gif/)[0];
-                        return 'image/'+r;
-                    };
-                    imgdata=imgdata.replace(fixtype(type),'image/octet-stream');
-                    //3.0 将图片保存到本地
-                    var savaFile=function(data,filename)
-                    {
-                        var save_link=document.createElementNS('http://www.w3.org/1999/xhtml', 'a');
-                        save_link.href=data;
-                        save_link.download=filename;
-                        var event=document.createEvent('MouseEvents');
-                        event.initMouseEvent('click',true,false,window,0,0,0,0,0,false,false,false,false,0,null);
-                        save_link.dispatchEvent(event);
-                    };
-                    var filename=''+new Date().getSeconds()+'.'+type;
-                    //我想用当前秒是可以解决重名的问题了 不行你就换成毫秒
-                    savaFile(imgdata,filename);
-            }
+ 
 
     </script>
     <script src="http://analytics.163.com/ntes.js"></script><script>_ntes_nacc = "mapp";neteaseTracker();</script><script src="http://static.ws.126.net/utf8/3g/util/analysis.min.js"></script><script>var _hmt=_hmt||[];(function(){var b=document.createElement("script");b.src="http://hm.baidu.com/hm.js?7fa45cfaddbf8ba5591da1950285d665";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(b,a)})();</script>
