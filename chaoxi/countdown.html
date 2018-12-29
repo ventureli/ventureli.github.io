@@ -1,0 +1,56 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+<title>下决心新年flag</title>
+<SCRIPT type="text/javascript">        
+            var maxtime = 5; //一个小时，按秒计算，自己调整!   
+            function CountDown() {
+                if (maxtime >= 0) {
+                    minutes = Math.floor(maxtime / 60);
+                    seconds = Math.floor(maxtime % 60);
+                    msg = "准备好新年的flag了吗？<br/>"+ seconds + "";
+                    document.all["timer"].innerHTML = msg;
+                    if (maxtime == 5 * 60);
+                        --maxtime;
+                } else{
+                    clearInterval(timer);
+                   window.location.href = "https://ventureli.github.io/chaoxi/index.html"
+                }
+            }
+            timer = setInterval("CountDown()", 1000);                
+        </SCRIPT>
+
+
+<style type="text/css">
+ body,img,p,form,div,ul,li,input,h3,td,th {padding: 0; margin: 0;}
+        html, body {position: relative;height: 100%; padding: 0; margin: 0;}
+        body {background: /*#1386e2*/white;font-family: Helvetica Neue, Helvetica, Arial, sans-serif;font-size: 14px;color:#000;margin: 0;padding: 0;}
+    
+.countdowntext{
+    margin-top: 200px;
+    font-size:50px;
+    text-align: center;
+}
+ .download-box{transition: all 500ms linear; visibility: visible; opacity: 1.0; flex-flow:row; position:fixed; top: 0; left: 0; width:100%; z-index: 9999999; background: /*#117acf*/white; width:100%;}
+ .dowmload{padding:10px 0px; width:100%; height:80px; position: relative;}
+        /*.logo{ -webkit-flex-shrink: 0;-ms-flex-negative: 0;flex-shrink: 0;-webkit-box-flex: 1;-webkit-flex-grow: 1;-ms-flex-positive: 1;flex-grow: 1; display:block;}*/
+.logo{ position: absolute; left:2%; top:7px}
+ .download-btn{position: absolute; right:2%; margin-top:-6px; /*position: absolute; right:18px; top:12px;*//*-webkit-flex-shrink: 0;-ms-flex-negative: 0;flex-shrink: 0;*/  display: inline-block; padding:8px; border-radius:5px; background:/*#ffc61d*/white; font-size: 13px; color:/*#181818*/white; text-decoration:none;}
+
+</style>
+</head>
+
+
+<body>
+ <div class="download-box">
+    <div class="dowmload">
+        <a class="logo" href="javascript:">
+            <img width="148" alt="" src="images/logo.png"></a>
+        <a href="http://www.xiajuexin.cn" class="download-btn"><img class="download-btn" width="90" alt="" src="images/下载button.png"></a> 
+        <!-- <a href="https://itunes.apple.com/cn/app/xia-jue-xin/id1115154013?mt=8" class="download-btn">立即下载</a> --> 
+    </div>
+</div>
+<div id="timer" class="countdowntext"></div> 
+</body>
+</html>
