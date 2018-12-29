@@ -1,0 +1,30 @@
+@charset "UTF-8";
+html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;overflow-y:scroll;-webkit-overflow-scrolling:touch}body,dd,dl,figure,form,h1,h2,h3,h4,h5,h6,input,ol,p,select,textarea,ul{margin:0;padding:0}h1,h2,h3,h4,h5,h6{font-weight:400}img{border:none;vertical-align:top}ol,ul{list-style:none}input,select,textarea{outline:0;border:none;background-color:transparent}textarea{resize:none}a{text-decoration:none}em,i{font-style:normal}a{blr:expression(this.onFocus=this.blur())}a{outline:0}a{-webkit-tap-highlight-color:transparent}.clearfix:after,.clearfix:before{content:"";display:table}.clearfix:after{clear:both}.fl{float:left}.fr{float:right}
+
+body{background:url(images/pc/body_bg.png) left top repeat-x;}
+.header,.content{width:1024px; margin: 0 auto;}
+.header{ width:982px; height:73px; padding-left: 40px; padding-top: 17px;}
+.header a{display:inline-block;}
+
+/*.header,.content,.conL,.conR,.imgBox div,.imgBox,.download-box{border: 1px solid red;}*/
+
+.conL{ width:269px; margin-left:121px;}
+.conR{ width:432px; margin-right:74px; padding-top:124px; }
+
+.imgBox{ width:246px; height:467px; margin-top: 54px; background:url(../img/phone_bg.png) left top no-repeat; padding-top: 98px; padding-left: 23px; border-radius:45px;}
+.imgBox .banner-box{ width: 225px; height: 386px;  overflow: hidden; position: relative;}
+.imgBox .banner{ height:386px; position: absolute; left:0; top: 0;}
+.imgBox img{ width: 225px; height: 386px; float:left; display:inline;}
+
+.btnBox{ width:45px; text-align:center; margin:0 auto;}
+.btnBox span{display: inline-block; width:15px; height:8px; background:url(../img/btn.png) center center no-repeat; cursor: pointer;}
+.btnBox span.cur{ background:url(../img/btn_hover.png) left center no-repeat;}
+
+.download-box{ height: 152px; padding-top: 98px;}
+.down-l{width:184px;}
+.down-r{width:114px; margin-right:80px; }
+
+.down-l a{ display:block; margin-bottom:14px;}
+.qr-code{ width: 104px; height:95px; background-color: #1487e2; margin:0 auto; padding-top:9px; text-align:center;}
+.qr-text{ font-size: 15px; color:#fff; line-height: 30px; text-align:center;}
+.footer{ height: 70px; margin-top:65px; margin-bottom:10px; line-height: 70px; font-size:15px; color:#181818; v }
