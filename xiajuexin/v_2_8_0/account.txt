@@ -1,1 +1,23 @@
-{"status":0,"msg":"success","data":{"account":{"basic":{"invite_account_id":"0","ctime":"2019-04-1811:07:58","level":"1","custom_para":"","invite_code":"gpuplm","token":"noL07T9GiXBcahwrv3VPoKpNcbfxDsmoRJw2VodPJC9k6gIGk9LZERFjkgC5HyL7JtffZJiOogLmsBBviA2A9w","pid":"8421545_61282886"},"wechat":{"sex":"0","headimgurl":"http:\/\/thirdwx.qlogo.cn\/mmopen\/vi_32\/DYAIOgq83erPkWScUngoYtRZHVEkXAHPxCO4RzYMwncHOeJEBiaRiaeOFYiaibAzR7iauoWSO68H8HB7siaNvGXl2Egw\/132","nickname":"多多客联盟官方客服","ctime":"2019-04-1811:07:58"}}}}
+{
+	"status": 0,
+	"msg": "success",
+	"data": {
+		"account": {
+			"basic": {
+				"invite_account_id": "4",
+				"ctime": "2019-03-14 21:05:23",
+				"level": "1",
+				"custom_para": "",
+				"invite_code": "30103j",
+				"token": "Z0noZIBBK1MZeokcRrHI2DMoII11_RRxoq_2jTb2OAtam_iEgrN9I5Lt3q3AcOpgwffmHhxMQq8D4kYkCXrg4Q",
+				"pid": "1981502_55508284"
+			},
+			"wechat": {
+				"sex": "0",
+				"headimgurl": "http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJIaEq17SHkPTZTBMGcEXebNeWxIy8icrtcuS1gqURNtvCMDGP93OFlsyfjcCvQbDs9TiadWfFNBbjg/132",
+				"nickname": "赤马儿",
+				"ctime": "2019-03-14 21:05:23"
+			}
+		}
+	}
+}
