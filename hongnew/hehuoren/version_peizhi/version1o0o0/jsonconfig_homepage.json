@@ -1,0 +1,50 @@
+[
+    
+    {
+        "type":"HMCHomeUserAccountCell"
+    },
+    {
+         "type": "HMCHomeFunctionZoneCollectionViewCell",
+         "items":[
+             {
+                 "icon":"tmp_A",
+                 "url":"fenxiangzhuan://history",
+             },{
+                 "icon":"tmp_B",
+                 "url":"fenxiangzhuan://like",
+             } ,{
+                 "icon":"tmp_C",
+                 "url":"",
+             } 
+         ]
+    },
+    {
+        "type": "TYT_APP_SearchHotBannerView_A"
+    },
+    {
+        "type":"TYTSplitSpaceCell_A"
+    },
+    {
+        "type": "TYT_APP_TYTHomeFlashSaleCell_B",
+        "title":"闪电抢",
+        "url":"https://mobile.yangkeduo.com/spike.html?spike_type=brand&open_detail_new_tab=1"
+    },
+    {
+        "type":"TYTSplitSpaceCell_A"
+    },
+    {
+        "type":"TYT_APP_HomeHotList_C_OneNine",
+        "title":"十元三单",
+         "url":"https://mobile.yangkeduo.com/duo_nine_nine.html?pid=1981502_42411666&cpsSign=CM1981502_42411666_bf8af3d811e0d807271e99aa3c905fff&duoduo_type=2&fenxiangzhuan_lanjiecoupon=1"
+    },
+    {
+        "type":"TYTSplitSpaceCell_A"
+    },
+    {
+        "type":"TYTSplitSpaceCell_A"
+    },
+    {
+        "type":"TYTHomeHeaderView_A"
+    }
+]
+ 

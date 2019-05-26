@@ -1,0 +1,13 @@
+{
+    "promotion_rate":"0.7"
+    ,"not_showdetail":"1"
+,"app_share_template":"{name}\n【市场价】{itemprice}\n【优惠价】{endprice}\n【购买链接】{shortlink}\n-----------------------\n更多购买商城：{shoplink}\n点击链接即可购买"
+  ,"tixianruleurl":"https://yanzhongwang.github.io/jieusanhint.html"
+  ,"ddjbBaseURL":"http://39.106.130.206:8081/index.php"
+    
+    
+    
+    
+}
+    
+

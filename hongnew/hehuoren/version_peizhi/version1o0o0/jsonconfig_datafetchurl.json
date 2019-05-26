@@ -1,0 +1,17 @@
+{
+    "clearanceurl":"http://apiv4.yangkeduo.com/api/gentian/charts?resource_type=11&pdduid={ppd_userid}"
+    ,"clearancedataurl":"http://apiv4.yangkeduo.com/api/gentian/charts_goods?resource_type=11&page={page}&size=100&charts_type=1&schedule_id={id}&pdduid={ppd_userid}"
+    ,"zhuyetuijianurl":"https://apiv5.yangkeduo.com/api/targaryen/query_goods_list_by_opt_id?optId={opt_id}&pageNum={page}&pageSize=30&pdduid={ppd_userid}"
+    ,"xianqingChangeConfig":{
+        "forreplace":"duo_coupon_landing.html?",
+        "thereplacetext":"goods.html?"
+    }
+    ,"ddjbbuyurlfixconfig":{
+        "forreplace":"https://mobile.yangkeduo.com/",
+        "thereplacetext":"pinduoduo://com.xunmeng.pinduoduo/"
+    }
+    ,"userloginurl":"https://mobile.yangkeduo.com/login.html"
+    ,"orderpageurl":"https://mobile.yangkeduo.com/orders.html?refer_page_name=duo_cms_mall&refer_page_id=10598_1543419204216_89IElaHLeN&refer_page_sn=10598"
+    ,"item_xiangqing_url":"https://mobile.yangkeduo.com/goods.html?goods_id={ppd_goodsid}"
+    ,"mobile_orderpageurl":"pinduoduo://com.xunmeng.pinduoduo/orders.html?refer_page_name=duo_cms_mall&refer_page_id=10598_1543419204216_89IElaHLeN&refer_page_sn=10598"
+}
