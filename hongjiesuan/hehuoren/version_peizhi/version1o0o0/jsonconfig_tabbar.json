@@ -1,0 +1,38 @@
+{
+    "maintab": [
+                {
+                "text": "精选",
+                "imagegray": "fxz_tabbar_icon_home_n",
+                "imagegrayhigh": "fxz_tabbar_icon_home_p",
+                "url":"fenxiangzhuan://home",
+                "extradict": {}
+                },
+                {
+                    "text": "类别",
+                    "imagegray": "fxz_tabbar_icon_search_n",
+                    "imagegrayhigh": "fxz_tabbar_icon_search_p",
+                    "url": "fenxiangzhuan://category",
+                    "extradict": {
+                    }
+                },
+                {
+                    "text": "集合",
+                    "imagegray": "fxz_tabbar_icon_cms_n",
+                    "imagegrayhigh": "fxz_tabbar_icon_cms_p",
+                    "url": "fenxiangzhuan://zhuti",
+                    
+                    "extradict":
+                    {
+                        "title":"品牌秒杀"
+                    }
+                } ,
+                {
+                    "text": "热榜",
+                    "imagegray": "fxz_tabbar_icon_rank_n",
+                    "imagegrayhigh": "fxz_tabbar_icon_rank_p",
+                    "url": "fenxiangzhuan://rank",
+                    "extradict": {
+                    }
+                }
+                ]
+}
