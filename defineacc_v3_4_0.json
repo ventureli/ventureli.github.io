@@ -1,0 +1,33 @@
+{
+    "use_test": "1",
+    "cookies": [
+        {
+            "value": "QGLJQNE3KDOQ5K6WW2IDOP2YOXQHQNLVJKNIOYLOSDCXTXK3AIZQ1026250",
+            "domain": "mobile.yangkeduo.com",
+            "path": "/",
+            "name": "PDDAccessToken",
+            "time": "2146780555"
+        },
+        {
+            "value": "3720102498",
+            "domain": "mobile.yangkeduo.com",
+            "path": "/",
+            "name": "pdd_user_id",
+            "time": "2146780555"
+        },
+        {
+            "value": "rBRcUVzYQfgCy34IB+HqAg==",
+            "domain": ".yangkeduo.com",
+            "path": "/",
+            "name": "api_uid",
+            "time": "2146780555"
+        },
+        {
+            "value": "IAS7VHCJPQXQAZUKUJ47QNRBXE_GEXDA",
+            "domain": "mobile.yangkeduo.com",
+            "path": "/",
+            "name": "pdd_user_uin",
+            "time": "2146780555"
+        }
+    ]
+}        
