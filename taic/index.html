@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>腾讯云小微教育平台</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <style>
+        body,img,p,form,div,ul,li,input,h3,td,th {margin: 0;padding: 0;}
+        html, body {position: relative;height: 100%;}
+        body {
+           
+            background: #ffffff;font-family: Helvetica Neue, Helvetica, Arial, sans-serif;font-size: 14px;color:#000;margin: 0;padding: 0;
+            background-image: url('https://taoyitao.oss-cn-beijing.aliyuncs.com/taic/bg3.png');
+            background-repeat:no-repeat; 
+            background-size: cover;
+          }
+        .swiper-container {width: 100%;height: 100%;}
+        .swiper-slide {text-align: center;font-size: 18px;/*background: #1386e2; */position: relative; text-align:center;
+            /* Center slide text vertically */display: -webkit-box;display: -ms-flexbox;display: -webkit-flex;display: flex;-webkit-box-pack: center;-ms-flex-pack: center;-webkit-justify-content: center;justify-content: center;-webkit-box-align: center;-ms-flex-align: center;-webkit-align-items: center;align-items: center;}
+        .swiper-container-horizontal>.swiper-pagination{bottom:40px;}
+        .swiper-pagination-bullet{width:8px;height:8px;}
+        .swiper-pagination-bullet-active{background: #fff;}
+        .download-box{ display:flex; flex-flow:row; position:fixed; top: 0; left: 0; width:100%; z-index: 10000; background: #ffffff22; width:100%;}
+        .dowmload{padding:10px 0px; width:100%; height:60px; position: relative;}
+        /*.logo{ -webkit-flex-shrink: 0;-ms-flex-negative: 0;flex-shrink: 0;-webkit-box-flex: 1;-webkit-flex-grow: 1;-ms-flex-positive: 1;flex-grow: 1; display:block;}*/
+        .logo{ position: absolute; left:2%; top:5px}
+        .btnBar
+        {
+            width: 100%;
+            height: 30px;
+            margin-top: -20px;
+             
+        }
+        .download-btn{ float:right; margin-right: 10px;   margin-top:5px; /*position: absolute; right:18px; top:12px;*//*-webkit-flex-shrink: 0;-ms-flex-negative: 0;flex-shrink: 0;*/  display: inline-block; padding:8px; border-radius:5px; background:#1e89ff; font-size: 13px; color:#ffffff; text-decoration:none; }
+        .download-btnB{ float:right;   margin-top:5px; /*position: absolute; right:18px; top:12px;*//*-webkit-flex-shrink: 0;-ms-flex-negative: 0;flex-shrink: 0;*/  display: inline-block; padding:8px;margin-right: 10px;  border-radius:5px; background:#1e89ff; font-size: 13px; color:#ffffff; text-decoration:none;}
+        .swiper-slide img{ position:absolute; bottom:0; left:50%; border-radius: 10px;}
+        .toast-wrap{
+      opacity: 0;
+      position: fixed;
+      bottom: 10%;
+      color: #fff;
+      width: 100%;
+      text-align: center;
+   }
+   .toast-msg{
+      background-color: rgba(0,0,0,0.7);
+      padding: 2px 5px;
+      border-radius: 5px;
+   }
+  .toastAnimate{
+      animation: toastKF 2s;
+  }
+  @keyframes toastKF{
+      0% {opacity: 0;}
+     25% {opacity: 1; z-index: 9999}
+     50% {opacity: 1; z-index: 9999}
+     75% {opacity: 1; z-index: 9999}
+     100% {opacity: 0; z-index: 0}
+  }
+
+
+a{text-decoration: none;
+}
+.weixinpic{
+  width: 100%; 
+  height: 100%;
+}
+.weixin-tip{
+   display: none;
+   position: fixed; left:0; top:0; bottom:0; 
+   background: rgba(0,0,0,0.8); 
+   filter:alpha(opacity=80); 
+   height: 100%;
+   width: 100%; 
+   z-index: 30000;
+ }
+.weixin-tip p{text-align: center;
+}
+
+    </style>
+</head>
+<body>
+    <div class="download-box">
+        <div class="dowmload">
+            <div style="height: 40px;">
+            <img class="logo" width="80%"  alt="" src="./images/logo.png">
+            </div>
+            <div class="btnBar">
+              
+            <a href="javascript:downloadiOS()" class="download-btn">iPhone下载</a>
+            <a href="javascript:downloadAndroid()" class="download-btnB"  >安卓下载</a>
+            
+            <!-- <a href="https://itunes.apple.com/cn/app/xia-jue-xin/id1115154013?mt=8" class="download-btn">iOS下载</a> -->
+            </div>
+
+        </div>
+
+    </div>
+    <div class="toast-wrap">
+            <span class="toast-msg"></span>
+     </div>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+                <img src="https://taoyitao.oss-cn-beijing.aliyuncs.com/taic/MAX1.png" height="85%" alt="">
+            </div>
+            
+            <div class="swiper-slide">
+                <img src="https://taoyitao.oss-cn-beijing.aliyuncs.com/taic/MAX2.png" height="85%" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="https://taoyitao.oss-cn-beijing.aliyuncs.com/taic/MAX3.png" height="85%" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="https://taoyitao.oss-cn-beijing.aliyuncs.com/taic/MAX4.png" height="85%" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="https://taoyitao.oss-cn-beijing.aliyuncs.com/taic/MAX5.png" height="85%" alt="">
+            </div>
+           
+             
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+
+    <div class="weixin-tip" style="display:none;">
+   <p>
+      <img src="https://pddhaohuo.oss-cn-beijing.aliyuncs.com/forwap/images/weixin-tip.png" class="weixinpic" alt="微信打开"/>
+  </p>
+  </div>
+
+    <script src="js/swiper.min.js" type="text/javascript"></script>
+    <script src="js/zepto.min.v1.1.4.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script src="../dist/clipboard.min.js"></script>
+    <script src="https://pddhaohuo.oss-cn-beijing.aliyuncs.com/js/axios.min.js"></script>
+
+    <script>
+
+        
+
+        //获取URL参数
+        function getUrlParam(name) {
+            var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if(r!=null)return  unescape(r[2]); return null;
+        }
+
+        function downloadiOS()
+        {
+            
+                location.href = 'itms-services://?action=download-manifest&url=https%3a%2f%2ftaoyitao.oss-cn-beijing.aliyuncs.com%2fa.plist';//安卓下载地址
+
+
+            
+        }
+        
+        function sendinfo() {
+             
+        }
+
+        function deviceinfo() {
+            
+        }
+
+    function downloadAndroid()
+    {
+          var u = navigator.userAgent, app = navigator.appVersion;
+          var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1;
+          var isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+          var winHeight = $(window).height();
+          function is_weixin()
+          {
+                var ua = navigator.userAgent.toLowerCase();
+                if (ua.match(/MicroMessenger/i) == "micromessenger") {
+                    return true;
+                } else {
+                    return false;
+                }
+          }
+            var isWeixin = is_weixin();
+            if(isWeixin)
+            {
+                $(".weixin-tip").css("height",winHeight);
+                $(".weixin-tip").show();
+
+                $(".weixin-tip").click(function()
+                  {
+                    $(".weixin-tip").hide();
+                  });
+
+            }else{
+                location.href = 'https://taoyitao.oss-cn-beijing.aliyuncs.com/demo_release.apk';//安卓下载地址
+            }
+
+
+
+      }
+
+      
+
+
+        function toast(msg){
+            setTimeout(function(){
+                document.getElementsByClassName('toast-wrap')[0].getElementsByClassName('toast-msg')[0].innerHTML=msg;
+                var toastTag = document.getElementsByClassName('toast-wrap')[0];
+                toastTag.className = toastTag.className.replace('toastAnimate','');
+                setTimeout(function(){
+                    toastTag.className = toastTag.className + ' toastAnimate';
+                }, 100);
+            },500);
+        }
+        $(function(){
+            setImg();
+        });
+        window.onload = function ()
+        {
+            setImg();
+
+        }
+
+        $(document).ready(function(){
+
+            sendinfo();
+        });
+        var swiper = new Swiper('.swiper-container', {
+            pagination: '.swiper-pagination',
+            paginationClickable: true,
+            direction: 'vertical'
+        });
+
+        function setImg(){
+            var $obj = $('.swiper-slide img'),
+                width = $obj.width();
+
+            $('.swiper-slide img').css('margin-left',-(width/2)+'px');
+        }
+        $(window).resize(function(){
+            setImg();
+        });
+        setImg();
+
+
+    </script>
+</body>
+</html>
