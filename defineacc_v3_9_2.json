@@ -1,0 +1,48 @@
+{
+    "use_test": "1",
+    "cookies": [
+        {
+            "value": "E67PN3ZE23YYQRPVEO5QOUX76GJ35SFB43VJQHEJI6I7AK5SMHGQ1125a90",
+            "domain": "mobile.yangkeduo.com",
+            "path": "/",
+            "name": "PDDAccessToken",
+            "time": "1587135465"
+        },
+        {
+            "value": "4095311229530",
+            "domain": "mobile.yangkeduo.com",
+            "path": "/",
+            "name": "pdd_user_id",
+            "time": "1587135466"
+        },
+        {
+            "value": "CiRoEF4V7aw4RQBgBmjJAg==",
+            "domain": ".yangkeduo.com",
+            "path": "/",
+            "name": "api_uid",
+            "time": "2145916555"
+        },
+        {
+            "value": "VKPUZQIUGXPONT6ZJTV2R4PG64_GEXDA",
+            "domain": "mobile.yangkeduo.com",
+            "path": "/",
+            "name": "pdd_user_uin",
+            "time": "1587135465"
+        },
+        {
+            "value": "Xpd8l0TbnpTqX0g8lT_21IEoR_4OC0fl872CyEUF",
+            "domain": "mobile.yangkeduo.com",
+            "path": "/",
+            "name": "_nano_fp",
+            "time": "2442409030"
+        },
+        {
+            "value": "Mozilla%2F5.0%20(iPhone%3B%20CPU%20iPhone%20OS%2013_3%20like%20Mac%20OS%20X)%20AppleWebKit%2F605.1.15%20(KHTML%2C%20like%20Gecko)%20Mobile%2F15E148",
+            "domain": "mobile.yangkeduo.com",
+            "path": "/",
+            "name": "ua",
+            "time": "1587135430"
+        }
+    ]
+} 
+
