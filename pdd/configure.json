@@ -1,9 +1,0 @@
-{
-    "showDetail": true,
-    "shareURL": "https://ventureli.github.io/pdd/index.html",
-    "store_uninstalled": "var A= document.getElementsByClassName('main-bottom-tabbar'); if(A.length > 0){A[0].setAttribute('style','display:none');} ;  A = document.getElementsByClassName('new-bottom-bar'); if(A.length > 0){A[0].setAttribute('style','display:none');} ",
-    "store_installed": "var A= document.getElementsByClassName('main-bottom-tabbar'); if(A.length > 0){A[0].setAttribute('style','display:none');} ; A = document.getElementsByClassName('goods-top-banner'); if(A.length > 0){A[0].setAttribute('style','display:none');}   A = document.getElementsByClassName('goods-bottom-bar'); if(A.length > 0){A[0].setAttribute('style','display:none');}   A = document.getElementsByClassName('goods-go-to-app'); if(A.length > 0){A[0].setAttribute('style',\"display:none');} ",
-    "detail_installed": "var A= document.getElementsByClassName('main-bottom-tabbar'); if(A.length > 0){A[0].setAttribute('style','display:none');} ; A = document.getElementsByClassName('goods-top-banner'); if(A.length > 0){A[0].setAttribute('style','display:none');}   A = document.getElementsByClassName('goods-bottom-bar'); if(A.length > 0){A[0].setAttribute('style','display:none');}   A = document.getElementsByClassName('goods-go-to-app'); if(A.length > 0){A[0].setAttribute('style','display:none');} ", 
-    "detail_uninstalled": ""
-    
-}
