@@ -1,0 +1,647 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>软件许可及服务协议</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	opacity: 0.5;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, KaiTi, STKaiTi, '华文楷体', KaiTi_GB2312, '楷体_GB2312', serif; }
+.mono { font-family: Nitti, 'Microsoft YaHei', '微软雅黑', monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, KaiTi, STKaiTi, '华文楷体', KaiTi_GB2312, '楷体_GB2312', serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, Nitti, 'Microsoft YaHei', '微软雅黑', monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="8ed92aa8-0541-45d5-b249-e1ef661617ef" class="page sans"><header><h1 class="page-title">软件许可及服务协议</h1></header><div class="page-body"><p id="b8030328-ab6c-4e7b-a453-66dc01a01ce1" class="">
+</p><h2 id="44ccc6b1-3110-438e-940f-08388abb7d75" class="">腾讯智慧作业软件许可及服务协议</h2><h3 id="4495c50e-5bb7-415a-8f4c-3d1f40030dac" class="">【首部及导言】</h3><p id="48ed53d2-064b-449c-b232-ec04400462cb" class="">欢迎您使用腾讯智慧作业软件及服务！
+为使用腾讯智慧作业软件（以下简称“本软件”）及服务，您应当阅读并遵守《腾讯智慧作业软件许可协议》（以下简称“本协议”）以及《腾讯服务协议》。请您务必审慎阅读、充分理解各条款内容，特别是免除或者限制责任的条款，以及开通或使用某项服务的单独协议，并选择接受或不接受。限制、免责条款可能以黑体加粗形式提示您注意。
+除非您已阅读并接受本协议所有条款，否则您无权下载、安装或使用本软件及相关服务。您的下载、安装、使用、登录等行为即视为您已阅读并同意上述协议的约束。
+如果您未满18周岁，请在法定监护人的陪同下阅读本协议及其他上述协议，并特别注意未成年人使用条款。</p><h3 id="f3fdd755-77f5-47d6-82ea-238b24cc190c" class="">一、【协议的范围】</h3><p id="5850b5fe-c883-4a44-9a60-d11b3b208d7d" class="">【协议适用主体范围】
+本协议是您与腾讯之间关于您下载、安装、使用、复制本软件，以及使用腾讯相关服务所订立的协议。
+1.2 【本许可协议指向内容】
+本协议项下的许可内容是指腾讯向用户提供的包括但不限于腾讯智慧作业终端（以下简称“智慧作业”）软件许可及服务（以下简称“本服务”）。
+1.3 【协议关系及冲突条款】
+本协议被视为《腾讯服务协议》（链接地址：<a href="http://www.qq.com/contract.shtml%EF%BC%8C%E8%8B%A5%E9%93%BE%E6%8E%A5%E5%9C%B0%E5%9D%80%E5%8F%98%E6%9B%B4%E7%9A%84%EF%BC%8C%E5%88%99%E4%BB%A5%E5%8F%98%E6%9B%B4%E5%90%8E%E7%9A%84%E9%93%BE%E6%8E%A5%E5%9C%B0%E5%9D%80%E6%89%80%E5%AF%B9%E5%BA%94%E7%9A%84%E5%86%85%E5%AE%B9%E4%B8%BA%E5%87%86%EF%BC%89%E7%9A%84%E8%A1%A5%E5%85%85%E5%8D%8F%E8%AE%AE%EF%BC%8C%E6%98%AF%E5%85%B6%E4%B8%8D%E5%8F%AF%E5%88%86%E5%89%B2%E7%9A%84%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86%EF%BC%8C%E4%B8%8E%E5%85%B6%E6%9E%84%E6%88%90%E7%BB%9F%E4%B8%80%E6%95%B4%E4%BD%93%E3%80%82%E6%9C%AC%E5%8D%8F%E8%AE%AE%E4%B8%8E%E4%B8%8A%E8%BF%B0%E5%86%85%E5%AE%B9%E5%AD%98%E5%9C%A8%E5%86%B2%E7%AA%81%E7%9A%84%EF%BC%8C%E4%BB%A5%E6%9C%AC%E5%8D%8F%E8%AE%AE%E4%B8%BA%E5%87%86%E3%80%82">http://www.qq.com/contract.shtml，若链接地址变更的，则以变更后的链接地址所对应的内容为准）的补充协议，是其不可分割的组成部分，与其构成统一整体。本协议与上述内容存在冲突的，以本协议为准。</a>
+本协议内容同时包括腾讯可能不断发布的关于本服务的相关协议、业务规则等内容。上述内容一经正式发布，即为本协议不可分割的组成部分，您同样应当遵守。</p><h3 id="ebd3106c-e302-43c3-b700-3fbbf378d580" class="">二、【关于本服务】</h3><p id="e3246d9f-8ee2-493e-8b44-d94487d84a7c" class="">2.1 【本服务的内容】
+本服务是指腾讯提供安装在移动终端设备上具有包括但不限于帮助老师在线布置批改作业、学生在线查看提交作业、智能组题出题、错题巩固练习、公告动态通知、班级文件共享、学生学情统计等多教学场景辅助的软件许可及服务（以下简称“本服务”）。
+2.2 【本服务的形式】
+2.2.1您使用本服务需要下载腾讯智慧作业客户端软件，对于这些软件，腾讯给予您一项个人的、不可转让及非排他性的许可。
+2.2.2 本服务中腾讯智慧作业客户端软件提供包括但不限于iOS、Android等多个应用版本，用户必须选择与所安装手机相匹配的软件版本。
+2.3 【本服务许可的范围】
+2.3.1腾讯给予您一项个人的、不可转让及非排他性的许可，以使用本软件。您可以为非商业目的在单一终端设备上安装、使用、显示、运行本软件。
+2.3.2您可以为使用本软件及服务的目的用计算机可读形式制作本软件的一个副本，仅用作备份。备份副本必须包含原软件中含有的所有著作权信息。
+2.3.3本条及本协议其他条款未明示授权的其他一切权利仍由腾讯保留，您在行使这些权利时须另外取得腾讯的书面许可。腾讯如果未行使前述任何权利，并不构成对该权利的放弃。</p><h3 id="47c31190-e2fa-4d3e-9aa5-3740facc1190" class="">三、【软件的获取】</h3><p id="25913c3b-5dc2-4846-a5b6-8c038562f233" class="">3.1 您可以直接从腾讯的网站上获取本软件，也可以从得到腾讯授权的第三方获取。
+3.2 如果您从未经腾讯授权的第三方获取本软件或与本软件名称相同的安装程序，腾讯无法保证该软件能够正常使用，并对因此给您造成的损失不予负责。</p><h3 id="00ff94e3-6468-4604-a1c9-16b278b7ab3d" class="">四、【软件的安装与卸载】</h3><p id="c5c8bce3-1425-47d8-968d-744777f9297f" class="">4.1 腾讯可能为不同的移动终端设备开发了不同的软件版本，您应当根据实际情况选择下载合适的版本进行安装，且您不得将本软件安装在未经腾讯明示许可的其他终端设备上。由于您未正确安装合适的软件版本所带来的风险及损失，腾讯不承担任何责任。
+4.2 下载安装程序后，您需要按照该程序提示的步骤正确安装。
+4.3 为提供更加优质、安全的服务，在本软件安装时腾讯可能推荐您安装其他软件，您可以选择安装或不安装。
+4.4 如果您不再需要使用本软件或者需要安装新版软件，可以自行卸载。如果您愿意帮助腾讯改进产品服务，请告知卸载的原因。</p><h3 id="23d82442-6006-4568-b642-5f1b78c16d1d" class="">五、【软件的更新】</h3><p id="13b5d885-de50-4a18-8e32-8a0ebd1f404a" class="">5.1 为了增进用户体验、完善服务内容，腾讯将不断努力开发新的服务，并为您不时提供软件更新（这些更新可能会采取软件替换、修改、功能强化、版本升级等形式）。
+5.2 为了改善用户体验，并保证服务的安全性和功能的一致性，腾讯有权不经向您特别通知而对软件进行更新，或者对软件的部分功能效果进行改变或限制。
+5.3 本软件新版本发布后，旧版本的软件可能无法使用。腾讯不保证旧版本软件继续可用及相应的客户服务，请您随时核对并下载最新版本。</p><h3 id="33e612ae-5802-461e-bccf-25ca75581500" class="">六、【用户个人信息保护】</h3><p id="169d2f08-397f-4cc7-9f43-2408d194f440" class="">6.1 保护用户个人信息是腾讯的一项基本原则。腾讯将按照本协议及《隐私政策》（链接地址：<a href="http://www.qq.com/privacy.htm%EF%BC%89%E7%9A%84%E8%A7%84%E5%AE%9A%E6%94%B6%E9%9B%86%E3%80%81%E4%BD%BF%E7%94%A8%E3%80%81%E5%82%A8%E5%AD%98%E5%92%8C%E5%88%86%E4%BA%AB%E6%82%A8%E7%9A%84%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF%E3%80%82%E6%9C%AC%E5%8D%8F%E8%AE%AE%E5%AF%B9%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF%E4%BF%9D%E6%8A%A4%E8%A7%84%E5%AE%9A%E7%9A%84%E5%86%85%E5%AE%B9%E4%B8%8E%E4%B8%8A%E8%BF%B0%E3%80%8A%E9%9A%90%E7%A7%81%E6%94%BF%E7%AD%96%E3%80%8B%E6%9C%89%E7%9B%B8%E5%86%B2%E7%AA%81%E7%9A%84%EF%BC%8C%E5%8F%8A%E6%9C%AC%E5%8D%8F%E8%AE%AE%E5%AF%B9%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF%E4%BF%9D%E6%8A%A4%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9%E6%9C%AA%E4%BD%9C%E6%98%8E%E7%A1%AE%E8%A7%84%E5%AE%9A%E7%9A%84%EF%BC%8C%E5%9D%87%E5%BA%94%E4%BB%A5%E3%80%8A%E9%9A%90%E7%A7%81%E6%94%BF%E7%AD%96%E3%80%8B%E7%9A%84%E5%86%85%E5%AE%B9%E4%B8%BA%E5%87%86%E3%80%82">http://www.qq.com/privacy.htm）的规定收集、使用、储存和分享您的个人信息。本协议对个人信息保护规定的内容与上述《隐私政策》有相冲突的，及本协议对个人信息保护相关内容未作明确规定的，均应以《隐私政策》的内容为准。</a>
+6.2 腾讯将会采取合理的措施保护用户的个人信息。除法律法规规定的情形外，未经用户许可腾讯不会向第三方公开、透露用户个人信息。腾讯对相关信息采用专业加密存储与传输方式，保障用户个人信息的安全。
+6.3 腾讯将运用各种安全技术和程序建立完善的管理制度来保护您的个人信息，以免遭受未经授权的访问、使用或披露。
+6.4 您在使用本服务的过程中，可能需要使用一些必要的信息，例如，当您登录本软件时，需要您填写QQ号码、微信帐号、手机号等信息；当您使用本软件时，需要您提供IMEI号等设备识别信息；为使用本服务的拍照布置和提交作业、提交语音作业、智能语音评测等功能，您需要同意本服务获取内存卡、麦克风、相机等权限。若国家法律法规或政策有特殊规定的，您需要提供真实的身份信息。若您不提供或提供的信息不完整，则无法使用本服务或在使用过程中受到限制。
+6.5 一般情况下，您可随时浏览、修改自己提交的信息，但出于安全性和身份识别（如号码申诉服务）的考虑，您可能无法修改注册时提供的初始注册信息及其他验证信息。
+6.6 未经您的同意，腾讯不会向腾讯以外的任何公司、组织和个人披露您的个人信息，但法律法规另有规定的除外。
+6.7 腾讯非常重视对未成年人个人信息的保护。若您是18周岁以下的未成年人，在使用腾讯的服务前，应事先取得您家长或法定监护人的书面同意。</p><h3 id="1fea84b0-05f1-4475-87c0-2c222c3f1c68" class="">七、【主权利义务条款】</h3><p id="7cee075a-810f-472c-a920-828bb51a1beb" class="">7.1【帐号使用规范】
+7.1.1 腾讯智慧作业软件可通过QQ号码、微信号码、手机号等登录。关于您使用微信和QQ帐号的具体规则，请遵守《QQ号码规则》、《腾讯微信软件许可及服务协议》及相关帐号使用协议以及腾讯为此发布的专项规则。
+7.1.2 用户有责任妥善保管注册帐户信息及帐户密码的安全，用户需要对注册帐户以及密码下的行为承担法律责任。用户同意在任何情况下不向他人透露帐户及密码信息。在您怀疑他人在使用您的帐号时，您应立即通知腾讯公司。
+7.2【用户注意事项】
+7.2.1 您理解并同意：为了向您提供有效的服务，本软件会利用您移动通讯终端的处理器和带宽等资源。本软件使用过程中可能产生数据流量的费用，用户需自行向运营商了解相关资费信息，并自行承担相关费用。
+7.2.2 您在使用本软件某一特定服务时，该服务可能会另有单独的协议、相关业务规则等（以下统称为“单独协议”），您在使用该项服务前请阅读并同意相关的单独协议。
+7.2.3 您理解并同意腾讯将会尽其商业上的合理努力保障您在本软件及服务中的数据存储安全，但是，腾讯并不能就此提供完全保证，包括但不限于以下情形：
+7.2.3.1 腾讯不对您在本软件及服务中相关数据的删除或储存失败负责；
+7.2.3.2 腾讯有权根据实际情况自行决定单个用户在本软件及服务中数据的最长储存期限，并在服务器上为其分配数据最大存储空间等。您可根据自己的需要自行备份本软件及服务中的相关数据；
+7.2.3.3 如果您停止使用本软件及服务或服务被终止或取消，腾讯可以从服务器上永久地删除您的数据。服务停止、终止或取消后，腾讯没有义务向您返还任何数据。
+7.2.4 您充分了解并同意，您可使用本软件及服务上传或发布属于您原创或您有权发表的观点看法、数据、文字、信息、用户名、图片、照片、个人信息、音频、视频文件、链接等信息内容。您必须保证，您拥有你所上传或发布信息内容的著作权或已获得合法授权，您使用本软件及服务的任何行为未侵犯任何第三方之合法权益。您必须为自己登录帐号下的一切上述所有行为负责并自行承担责任。您应对本软件及服务中的内容自行加以判断，并须自行承担如下来自腾讯不可掌控的风险内容，包括但不限于：
+7.2.4.1 由于不可抗拒因素可能引起的个人信息丢失、泄漏等风险；
+7.2.4.2 用户必须选择与所安装手机相匹配的软件版本，否则，由于软件与手机型号不相匹配所导致的任何问题或损害，均由用户自行承担；
+7.2.4.3 用户在使用本软件访问第三方产品时，因第三方产品及相关内容所可能导致的风险，由用户自行承担；
+7.2.4.4 由于无线网络信号不稳定、无线网络带宽小等原因，所引起的登录失败、资料同步不完整、页面打开速度慢等风险；
+7.2.4.5用户发布的内容被他人转发、分享，因此等传播可能带来的风险和责任。
+7.3 您充分理解并同意：因业务调整等原因，腾讯公司有权在提前通知您的情况下修改、中止、中断或取消给您提供的服务，若因前述行为造成您或他人损失的，腾讯无需承担任何赔偿责任。
+7.4【第三方产品和服务】
+7.4.1 您在使用本软件中第三方提供的产品或服务时，除遵守本协议约定外，还应遵守第三方的用户协议。腾讯和第三方对可能出现的纠纷在法律规定和约定的范围内各自承担责任。
+7.4.2 因用户使用本软件或要求腾讯提供特定服务时，本软件可能会调用第三方系统或者通过第三方支持用户的使用或访问，使用或访问的结果由该第三方提供，腾讯不保证通过第三方系统提供的服务及内容或支持实现的结果的安全性、准确性、有效性及其他不确定的风险，由此若引发的任何争议及损害，与腾讯无关，腾讯不承担任何责任。</p><h3 id="a07036ec-733b-43fb-904c-563afe2b4395" class="">八、【用户行为规范】</h3><p id="16342992-d81a-49e2-84e2-4d3f753782e6" class="">8.1【信息内容规范】
+您在使用本服务时不得利用本服务从事以下行为，包括但不限于：
+8.1.1 发布、传送、传播、储存违反国家法律、危害国家安全统一、社会稳定、公序良俗、社会公德以及侮辱、诽谤、淫秽、暴力的内容；
+8.1.2 发布、传送、传播、储存侵害他人名誉权、肖像权、知识产权、商业秘密等合法权利的内容；
+8.1.3 虚构事实、隐瞒真相以误导、欺骗他人；
+8.1.4 发表、传送、传播广告信息及垃圾信息；
+8.1.5 从事其他违反法律法规、政策及公序良俗、社会公德等的行为。
+8.2【软件使用规范】
+除非法律允许或腾讯书面许可，您不得从事下列行为：
+8.2.1 删除本软件及其副本上关于著作权的信息；
+8.2.2 对本软件进行反向工程、反向汇编、反向编译，或者以其他方式尝试发现本软件的源代码；
+8.2.3 对腾讯拥有知识产权的内容进行使用、出租、出借、复制、修改、链接、转载、汇编、发表、出版、建立镜像站点等；
+8.2.4 对本软件或者本软件运行过程中释放到任何终端内存中的数据、软件运行过程中客户端与服务器端的交互数据，以及本软件运行所必需的系统数据，进行复制、修改、增加、删除、挂接运行或创作任何衍生作品，形式包括但不限于使用插件、外挂或非腾讯经授权的第三方工具/服务接入本软件和相关系统；
+8.2.5 通过修改或伪造软件运行中的指令、数据，增加、删减、变动软件的功能或运行效果，或者将用于上述用途的软件、方法进行运营或向公众传播，无论这些行为是否为商业目的；
+8.2.6 通过非腾讯开发、授权的第三方软件、插件、外挂、系统，登录或使用腾讯软件及服务，或制作、发布、传播上述工具；
+8.2.7 自行或者授权他人、第三方软件对本软件及其组件、模块、数据进行干扰；
+8.2.8 其他未经腾讯明示授权的行为；
+8.2.9 其他违反法律法规、政策的行为。
+8.3【对自己行为负责】
+您充分了解并同意，您需要为自己使用本软件及服务下的一切行为负责。由于技术等方面的原因，腾讯无法对您使用本软件及服务所查询的结果的安全性、正确性、及时性、完整性、实用性等作出任何保证，您需要对您使用本软件及服务所查询的结果自行加以判断，并承担因使用内容而引起的所有风险。腾讯无法且不会对因前述风险而导致的任何损失或损害承担责任，但腾讯承诺将努力不断提升服务质量。
+8.4【违约处理】
+8.4.1 您理解并同意，腾讯有权依合理判断对违反有关法律法规或本协议规定的行为进行处罚，对违法违规的任何用户采取适当的法律行动，并依据法律法规保存有关信息向有关部门报告等，用户应独自承担由此而产生的一切法律责任。
+8.4.2 您理解并同意，因您违反本协议或相关服务条款的规定，导致或产生第三方主张的任何索赔、要求或损失，您应当独立承担责任；腾讯因此遭受损失的，您也应当一并赔偿。</p><h3 id="745ee443-07ab-4743-9069-76af27a1c3e7" class="">九、【知识产权声明】</h3><p id="cec43960-0185-4988-a230-4150b1b02c4f" class="">9.1 腾讯是本软件的知识产权权利人。本软件的一切著作权、商标权、专利权、商业秘密等知识产权，以及与本软件相关的所有信息内容（包括但不限于文字、图片、音频、视频、图表、界面设计、版面框架、有关数据或电子文档等）均受中华人民共和国法律法规和相应的国际条约保护，腾讯享有上述知识产权，但相关权利人依照法律规定应享有的权利除外。
+9.2 未经腾讯或相关权利人书面同意，您不得为任何商业或非商业目的自行或许可任何第三方实施、利用、转让上述知识产权。</p><h3 id="f02a947c-e056-4e3c-a88d-cb1d6b138166" class="">十、【终端安全责任】</h3><p id="36552f67-2396-40ff-9bf1-2a58e5af0678" class="">10.1 您理解并同意，本软件同大多数互联网软件一样，可能会受多种因素影响（包括但不限于用户原因、网络服务质量、社会环境等）；也可能会受各种安全问题的侵扰（包括但不限于他人非法利用用户资料，进行现实中的骚扰；用户下载安装的其他软件或访问的其他网站中可能含有病毒、木马程序或其他恶意程序，威胁您的移动终端设备和数据的安全，继而影响本软件的正常使用等）。因此，您应加强信息安全及个人信息的保护意识，注意密码保护，以免遭受损失。
+10.2 您不得制作、发布、使用、传播用于窃取QQ号码及他人个人信息、财产的恶意程序。
+10.3 维护软件安全与正常使用是腾讯和您的共同责任，腾讯将按照行业标准合理审慎地采取必要技术措施保护您移动终端设备的信息和数据安全，但是您承认和同意腾讯不能就此提供任何保证。</p><h3 id="e5665778-cc00-4e17-b8ae-15db9a177a14" class="">十一、【第三方软件或技术】</h3><p id="20cb35b5-0b98-4867-b2ef-b280b787baaf" class="">11.1 本软件可能会使用第三方软件或技术（包括本软件可能使用的开源代码和公共领域代码等，下同），这种使用已经获得合法授权。
+11.2 本软件如果使用了第三方的软件或技术，腾讯将按照相关法规或约定，对相关的协议或其他文件，可能通过本协议附件、在本软件安装包特定文件夹中打包等形式进行展示，它们可能会以“软件使用许可协议”、“授权协议”、“开源代码许可证”或其他形式来表达。前述通过各种形式展现的相关协议或其他文件，均是本协议不可分割的组成部分，与本协议具有同等的法律效力，您应当遵守这些要求。如果您没有遵守这些要求，该第三方或者国家机关可能会对您提起诉讼、罚款或采取其他制裁措施，并要求腾讯给予协助，您应当自行承担法律责任。
+11.3 如因本软件使用的第三方软件或技术引发的任何纠纷，应由该第三方负责解决，腾讯不承担任何责任。腾讯不对第三方软件或技术提供客服支持，若您需要获取支持，请与第三方联系。</p><h3 id="05cad0e7-2e08-4108-9648-9ac089489273" class="">十二、【其他】</h3><p id="1b5f1e27-727d-4cfe-b2ba-ccacf0dd8098" class="">12.1 腾讯有权在必要时修改本协议条款。您可以在本软件的最新版本中查阅相关协议条款。本协议条款变更后，如果您继续使用本软件，即视为您已接受修改后的协议。如果您不接受修改后的协议，应当停止使用本软件。
+12.2 本协议签订地为中华人民共和国广东省深圳市南山区。
+12.3 本协议的成立、生效、履行、解释及纠纷解决，适用中华人民共和国大陆地区法律（不包括冲突法）。
+12.4 若您和腾讯之间发生任何纠纷或争议，首先应友好协商解决；协商不成的，您同意将纠纷或争议提交本协议签订地有管辖权的人民法院管辖。
+12.5 本协议所有条款的标题仅为阅读方便，本身并无实际涵义，不能作为本协议涵义解释的依据。
+12.6 本协议条款无论因何种原因部分无效或不可执行，其余条款仍有效，对双方具有约束力。
+腾讯公司</p></div></article></body></html>
